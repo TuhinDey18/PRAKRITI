@@ -1,46 +1,60 @@
+/* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  background-color: #f4f4f9;
   color: #333;
+  line-height: 1.6;
 }
 
 header {
   background-color: #4CAF50;
   color: white;
-  padding: 20px;
+  padding: 60px 20px;
   text-align: center;
+  animation: fadeIn 2s ease-in-out;
 }
 
 header h1 {
   margin: 0;
+  font-size: 2.5rem;
 }
 
-.login-section {
-  margin: 20px auto;
+.highlight {
+  color: #ffeb3b;
+}
+
+/* Login and Signup Sections */
+.login-section, .signup-section {
+  margin: 40px auto;
   padding: 20px;
   max-width: 400px;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: slideUp 1s ease-in-out;
 }
 
-.login-section h2 {
+.login-section h2, .signup-section h2 {
   margin-top: 0;
+  font-size: 2rem;
+  color: #4CAF50;
 }
 
 form label {
   display: block;
   margin: 10px 0 5px;
+  font-weight: bold;
 }
 
 form input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 form button {
@@ -49,29 +63,34 @@ form button {
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 form button:hover {
   background-color: #45a049;
 }
 
-.provider-section {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 800px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Footer */
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 20px;
   background-color: #333;
   color: white;
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
