@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EcoConnect</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="gradient-background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="eco">Eco</span><span class="connect">Connect</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="login.html" class="btn-login active">Login</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-container">
+                    <h2 class="auth-title">Welcome Back</h2>
+                    <div class="auth-tabs">
+                        <div class="tab active" data-tab="consumer">Consumer</div>
+                        <div class="tab" data-tab="provider">Provider</div>
+                    </div>
+                    
+                    <div class="tab-content active" id="consumer-login">
+                        <form id="consumer-login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="consumer-email">Email</label>
+                                <input type="email" id="consumer-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="consumer-password">Password</label>
+                                <input type="password" id="consumer-password" required>
+                            </div>
+                            <div class="form-group remember-forgot">
+                                <div class="remember-me">
+                                    <input type="checkbox" id="consumer-remember">
+                                    <label for="consumer-remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                        </form>
+                        <div class="auth-footer">
+                            <p>Don't have an account? <a href="register.html" data-tab="consumer">Register as Consumer</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="provider-login">
+                        <form id="provider-login-form" class="auth-form">
+                            <div class="form-group">
+                                <label for="provider-email">Business Email</label>
+                                <input type="email" id="provider-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="provider-password">Password</label>
+                                <input type="password" id="provider-password" required>
+                            </div>
+                            <div class="form-group remember-forgot">
+                                <div class="remember-me">
+                                    <input type="checkbox" id="provider-remember">
+                                    <label for="provider-remember">Remember me</label>
+                                </div>
+                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                        </form>
+                        <div class="auth-footer">
+                            <p>Don't have an account? <a href="register.html" data-tab="provider">Register as Provider</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EcoConnect</h3>
+                    <p>Connecting you with the best renewable energy solutions in your area.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@ecoconnect.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EcoConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
