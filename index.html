@@ -1,35 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PRAKRITI - Renewable Energy</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoConnect - Renewable Energy Marketplace</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Welcome to <span class="highlight">PRAKRITI</span></h1>
-    <p>Your gateway to local renewable energy providers</p>
-  </header>
+    <div class="gradient-background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
 
-  <section class="login-section">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <label for="username">Username or Email:</label>
-      <input type="text" id="username" name="username" required>
-      
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
-      
-      <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-  </section>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="eco">Eco</span><span class="connect">Connect</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 PRAKRITI. All rights reserved.</p>
-  </footer>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Connect with Renewable Energy Solutions</h1>
+                    <p>Find local providers for solar panels, wind energy, and rainwater harvesting systems - all in one place.</p>
+                    <div class="hero-buttons">
+                        <a href="register.html" class="btn btn-primary">Get Started</a>
+                        <a href="#how-it-works" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/600x400" alt="Renewable Energy Solutions">
+                </div>
+            </div>
+        </section>
 
-  <script src="script.js"></script>
+        <section id="how-it-works" class="how-it-works">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Find Local Providers</h3>
+                        <p>Discover renewable energy solution providers in your area with our location-based search.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-search-dollar"></i>
+                        </div>
+                        <h3>Compare Options</h3>
+                        <p>Compare prices and services to find the best renewable energy solution for your needs.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Book Installation</h3>
+                        <p>Book your installation directly through our platform and start your journey to sustainable energy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3>Solar Panels</h3>
+                        <p>Harness the power of the sun with high-efficiency solar panel installations for homes and businesses.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>Wind Energy</h3>
+                        <p>Generate clean electricity with residential and commercial wind turbine solutions.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>Rainwater Collection</h3>
+                        <p>Conserve water resources with advanced rainwater harvesting and filtration systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Customer Testimonials</h2>
+                <div class="testimonial-carousel">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"EcoConnect made it so easy to find a reliable solar panel installer. I saved 20% compared to quotes I got elsewhere!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-name">Sarah Johnson</div>
+                                <div class="author-location">Portland, OR</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>"I was able to compare different rainwater collection systems and find the perfect setup for my home. The installation was scheduled within a week!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-name">Michael Chen</div>
+                                <div class="author-location">Austin, TX</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">About EcoConnect</h2>
+                    <p>EcoConnect is a marketplace connecting homeowners and businesses with trusted renewable energy providers. Our mission is to accelerate the transition to sustainable energy by making it easy to find, compare, and book renewable energy installations.</p>
+                    <p>Founded in 2025, we've already helped thousands of customers reduce their carbon footprint and save on energy costs.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x300" alt="About EcoConnect">
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta">
+            <div class="container">
+                <h2>Ready to switch to renewable energy?</h2>
+                <p>Join thousands of homeowners and businesses who have already made the switch.</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-primary">Get Started Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EcoConnect</h3>
+                    <p>Connecting you with the best renewable energy solutions in your area.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> info@ecoconnect.com</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EcoConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
