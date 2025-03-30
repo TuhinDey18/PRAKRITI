@@ -9,6 +9,65 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional CSS for the tabs */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .tab {
+            padding: 10px 30px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tab.active {
+            border-bottom: 2px solid #4CAF50;
+            color: #4CAF50;
+            font-weight: 500;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* Style for the form container */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        /* Register links */
+        .register-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .register-links a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .register-links a:hover {
+            text-decoration: underline;
+        }
+        /* Forgot password */
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .forgot-password a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="gradient-background">
@@ -38,60 +97,55 @@
     </header>
 
     <main>
-        <section class="auth-section">
+        <section class="login-section">
             <div class="container">
-                <div class="auth-container">
-                    <h2 class="auth-title">Welcome Back</h2>
-                    <div class="auth-tabs">
-                        <div class="tab active" data-tab="consumer">Consumer</div>
-                        <div class="tab" data-tab="provider">Provider</div>
+                <div class="form-container">
+                    <h2 class="section-title text-center">Login to Your Account</h2>
+                    
+                    <div class="tab-container">
+                        <div class="tab active" id="consumer-login-tab">Consumer</div>
+                        <div class="tab" id="provider-login-tab">Provider</div>
                     </div>
                     
-                    <div class="tab-content active" id="consumer-login">
-                        <form id="consumer-login-form" class="auth-form">
+                    <!-- Consumer Login Form -->
+                    <div class="tab-content active" id="consumer-login-content">
+                        <form id="consumer-login-form">
                             <div class="form-group">
                                 <label for="consumer-email">Email</label>
-                                <input type="email" id="consumer-email" required>
+                                <input type="email" id="consumer-email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="consumer-password">Password</label>
-                                <input type="password" id="consumer-password" required>
+                                <input type="password" id="consumer-password" name="password" required>
                             </div>
-                            <div class="form-group remember-forgot">
-                                <div class="remember-me">
-                                    <input type="checkbox" id="consumer-remember">
-                                    <label for="consumer-remember">Remember me</label>
-                                </div>
-                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            <div class="forgot-password">
+                                <a href="forgot-password.html?type=consumer">Forgot Password?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Login as Consumer</button>
                         </form>
-                        <div class="auth-footer">
-                            <p>Don't have an account? <a href="register.html" data-tab="consumer">Register as Consumer</a></p>
+                        <div class="register-links">
+                            <p>Don't have an account? <a href="register.html">Register Now</a></p>
                         </div>
                     </div>
                     
-                    <div class="tab-content" id="provider-login">
-                        <form id="provider-login-form" class="auth-form">
+                    <!-- Provider Login Form -->
+                    <div class="tab-content" id="provider-login-content">
+                        <form id="provider-login-form">
                             <div class="form-group">
                                 <label for="provider-email">Business Email</label>
-                                <input type="email" id="provider-email" required>
+                                <input type="email" id="provider-email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="provider-password">Password</label>
-                                <input type="password" id="provider-password" required>
+                                <input type="password" id="provider-password" name="password" required>
                             </div>
-                            <div class="form-group remember-forgot">
-                                <div class="remember-me">
-                                    <input type="checkbox" id="provider-remember">
-                                    <label for="provider-remember">Remember me</label>
-                                </div>
-                                <a href="#" class="forgot-password">Forgot Password?</a>
+                            <div class="forgot-password">
+                                <a href="forgot-password.html?type=provider">Forgot Password?</a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                            <button type="submit" class="btn btn-primary btn-block">Login as Provider</button>
                         </form>
-                        <div class="auth-footer">
-                            <p>Don't have an account? <a href="register.html" data-tab="provider">Register as Provider</a></p>
+                        <div class="register-links">
+                            <p>Don't have a provider account? <a href="register.html">Register as Provider</a></p>
                         </div>
                     </div>
                 </div>
@@ -118,8 +172,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> help-prakriti@gmailt.com</p>
-                    <p><i class="fas fa-phone"></i> +91 8116417733</p>
+                    <p><i class="fas fa-envelope"></i> help-prakriti@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 9434740129</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -129,12 +183,45 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 EcoConnect. All rights reserved.</p>
+                <p>&copy; 2025 PRAKRITI. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters to check if we should default to provider tab
+            const urlParams = new URLSearchParams(window.location.search);
+            const userType = urlParams.get('type');
+            
+            const consumerTab = document.getElementById('consumer-login-tab');
+            const providerTab = document.getElementById('provider-login-tab');
+            const consumerContent = document.getElementById('consumer-login-content');
+            const providerContent = document.getElementById('provider-login-content');
+            
+            // If type=provider in URL, show provider tab by default
+            if (userType === 'provider') {
+                providerTab.classList.add('active');
+                consumerTab.classList.remove('active');
+                providerContent.classList.add('active');
+                consumerContent.classList.remove('active');
+            }
+            
+            consumerTab.addEventListener('click', function() {
+                consumerTab.classList.add('active');
+                providerTab.classList.remove('active');
+                consumerContent.classList.add('active');
+                providerContent.classList.remove('active');
+            });
+            
+            providerTab.addEventListener('click', function() {
+                providerTab.classList.add('active');
+                consumerTab.classList.remove('active');
+                providerContent.classList.add('active');
+                consumerContent.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
