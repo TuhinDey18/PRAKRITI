@@ -9,7 +9,7 @@
         :root {
             --primary-color: #3CB371;
             --primary-dark: #2E8B57;
-            --light-bg: #f5f8fa;
+            --light-bg: #f0f8ff;
             --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
@@ -28,70 +28,80 @@
             flex-direction: column;
         }
         
-        .navbar {
+        /* Header styles matching your existing site */
+        header {
+            background-color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            background-color: white;
             box-shadow: var(--shadow);
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .logo span {
-            color: #333;
-        }
-        
-        .nav-links {
             display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo span:first-child {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span:last-child {
+            color: #2196F3;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
             gap: 2rem;
         }
         
-        .nav-links a {
+        nav li a {
             text-decoration: none;
-            color: #555;
+            color: #333;
             font-weight: 500;
             transition: var(--transition);
         }
         
-        .nav-links a:hover {
+        nav li a:hover {
             color: var(--primary-color);
         }
         
-        .login-btn {
+        .login-button {
             background-color: var(--primary-color);
             color: white;
-            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
             border-radius: 50px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
+            font-weight: 500;
             transition: var(--transition);
         }
         
-        .login-btn:hover {
+        .login-button:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
         }
         
-        .container {
+        /* Main content styles */
+        main {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex: 1;
             padding: 2rem;
         }
         
         .login-container {
             background-color: white;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 480px;
+            max-width: 500px;
             overflow: hidden;
         }
         
@@ -106,18 +116,18 @@
             margin-bottom: 0.5rem;
         }
         
-        .login-header .underline {
+        .title-underline {
             height: 4px;
             width: 60px;
             background-color: var(--primary-color);
-            margin: 0 auto;
+            margin: 0.5rem auto 1.5rem;
             border-radius: 4px;
         }
         
         .tabs {
             display: flex;
+            margin-top: 1rem;
             border-bottom: 1px solid #eee;
-            margin-top: 1.5rem;
         }
         
         .tab {
@@ -125,9 +135,8 @@
             text-align: center;
             padding: 1rem;
             cursor: pointer;
-            font-weight: 500;
             color: #777;
-            transition: var(--transition);
+            font-weight: 500;
             position: relative;
         }
         
@@ -146,12 +155,11 @@
         }
         
         .login-form {
-            padding: 2rem;
+            padding: 1.5rem 2rem 2rem;
         }
         
         .form-group {
             margin-bottom: 1.5rem;
-            position: relative;
         }
         
         .form-group label {
@@ -161,11 +169,11 @@
             font-weight: 500;
         }
         
-        .input-group {
+        .input-wrapper {
             position: relative;
         }
         
-        .input-group i {
+        .input-wrapper i {
             position: absolute;
             left: 1rem;
             top: 50%;
@@ -177,127 +185,138 @@
             width: 100%;
             padding: 0.8rem 1rem 0.8rem 2.5rem;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 4px;
             font-size: 1rem;
             transition: var(--transition);
         }
         
         .form-control:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(60, 179, 113, 0.2);
+            box-shadow: 0 0 0 2px rgba(60, 179, 113, 0.1);
             outline: none;
+        }
+        
+        .form-control::placeholder {
+            color: #aaa;
         }
         
         .forgot-password {
             text-align: right;
-            margin-bottom: 1.5rem;
+            margin: 0.5rem 0 1.5rem;
         }
         
         .forgot-password a {
             color: var(--primary-color);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: var(--transition);
         }
         
         .forgot-password a:hover {
             text-decoration: underline;
         }
         
-        .btn-login {
+        .login-btn {
             width: 100%;
-            padding: 0.8rem;
             background-color: var(--primary-color);
             color: white;
             border: none;
-            border-radius: 8px;
+            padding: 0.9rem;
+            border-radius: 4px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
         }
         
-        .btn-login:hover {
+        .login-btn:hover {
             background-color: var(--primary-dark);
-            transform: translateY(-2px);
         }
         
-        .register-link {
+        .register-now {
             text-align: center;
             margin-top: 1.5rem;
-            color: #777;
+            color: #666;
         }
         
-        .register-link a {
+        .register-now a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
         }
         
-        .register-link a:hover {
+        .register-now a:hover {
             text-decoration: underline;
         }
         
-        .footer {
-            background-color: #333;
+        /* Footer styles */
+        footer {
+            background-color: #222;
             color: white;
             text-align: center;
             padding: 1rem;
             margin-top: auto;
         }
-
+        
         /* Responsive styles */
         @media (max-width: 768px) {
-            .navbar {
+            header {
                 flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            nav ul {
                 gap: 1rem;
             }
             
-            .container {
+            main {
                 padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Pra<span>kriti</span></div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="login-btn">Login</div>
-    </nav>
+    <header>
+        <a href="index.html" class="logo">
+            <span>Pra</span><span>kriti</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="login.html" class="login-button">Login</a>
+    </header>
     
-    <div class="container">
+    <main>
         <div class="login-container">
             <div class="login-header">
                 <h1>Login to Your Account</h1>
-                <div class="underline"></div>
+                <div class="title-underline"></div>
                 
                 <div class="tabs">
-                    <div class="tab active" id="consumer-tab">Consumer</div>
+                    <div class="tab" id="consumer-tab">Consumer</div>
                     <div class="tab" id="provider-tab">Provider</div>
                 </div>
             </div>
             
             <div class="login-form" id="consumer-form">
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <div class="input-group">
+                    <label for="consumer-email">Email</label>
+                    <div class="input-wrapper">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        <input type="email" id="consumer-email" class="form-control" placeholder="Enter your email">
                     </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
+                    <label for="consumer-password">Password</label>
+                    <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                        <input type="password" id="consumer-password" class="form-control" placeholder="Enter your password">
                     </div>
                 </div>
                 
@@ -305,9 +324,9 @@
                     <a href="#">Forgot Password?</a>
                 </div>
                 
-                <button class="btn-login">Login as Consumer</button>
+                <button class="login-btn" id="consumer-login-btn">Login as Consumer</button>
                 
-                <div class="register-link">
+                <div class="register-now">
                     Don't have an account? <a href="register.html">Register Now</a>
                 </div>
             </div>
@@ -315,7 +334,7 @@
             <div class="login-form" id="provider-form" style="display: none;">
                 <div class="form-group">
                     <label for="provider-email">Email</label>
-                    <div class="input-group">
+                    <div class="input-wrapper">
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="provider-email" class="form-control" placeholder="Enter your email">
                     </div>
@@ -323,7 +342,7 @@
                 
                 <div class="form-group">
                     <label for="provider-password">Password</label>
-                    <div class="input-group">
+                    <div class="input-wrapper">
                         <i class="fas fa-lock"></i>
                         <input type="password" id="provider-password" class="form-control" placeholder="Enter your password">
                     </div>
@@ -333,16 +352,16 @@
                     <a href="#">Forgot Password?</a>
                 </div>
                 
-                <button class="btn-login">Login as Provider</button>
+                <button class="login-btn" id="provider-login-btn">Login as Provider</button>
                 
-                <div class="register-link">
+                <div class="register-now">
                     Don't have an account? <a href="register.html">Register Now</a>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     
-    <footer class="footer">
+    <footer>
         &copy; 2025 Prakriti. All rights reserved.
     </footer>
     
@@ -353,19 +372,42 @@
             const consumerForm = document.getElementById('consumer-form');
             const providerForm = document.getElementById('provider-form');
             
+            // Set initial state based on URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            
+            if (type === 'provider') {
+                setProviderActive();
+            } else {
+                setConsumerActive(); // Default to consumer
+            }
+            
+            // Tab click handlers
             consumerTab.addEventListener('click', function() {
+                setConsumerActive();
+                // Update URL without page reload
+                history.replaceState(null, '', 'login.html?type=consumer');
+            });
+            
+            providerTab.addEventListener('click', function() {
+                setProviderActive();
+                // Update URL without page reload
+                history.replaceState(null, '', 'login.html?type=provider');
+            });
+            
+            function setConsumerActive() {
                 consumerTab.classList.add('active');
                 providerTab.classList.remove('active');
                 consumerForm.style.display = 'block';
                 providerForm.style.display = 'none';
-            });
+            }
             
-            providerTab.addEventListener('click', function() {
+            function setProviderActive() {
                 providerTab.classList.add('active');
                 consumerTab.classList.remove('active');
                 providerForm.style.display = 'block';
                 consumerForm.style.display = 'none';
-            });
+            }
         });
     </script>
 </body>
