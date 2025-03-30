@@ -3,223 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PRAKRITI</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Prakriti - Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Additional CSS for the tabs */
-        .tab-container {
+        :root {
+            --primary-color: #3CB371;
+            --primary-dark: #2E8B57;
+            --light-bg: #f5f8fa;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(120deg, #e0f7fa, #f5f8fa);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: #333;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .login-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .login-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .container {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            align-items: center;
+            flex: 1;
+            padding: 2rem;
         }
+        
+        .login-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+        }
+        
+        .login-header {
+            padding: 2rem 2rem 1rem;
+            text-align: center;
+        }
+        
+        .login-header h1 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .login-header .underline {
+            height: 4px;
+            width: 60px;
+            background-color: var(--primary-color);
+            margin: 0 auto;
+            border-radius: 4px;
+        }
+        
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-top: 1.5rem;
+        }
+        
         .tab {
-            padding: 10px 30px;
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
             cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #777;
+            transition: var(--transition);
+            position: relative;
         }
+        
         .tab.active {
-            border-bottom: 2px solid #4CAF50;
-            color: #4CAF50;
+            color: var(--primary-color);
+        }
+        
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .login-form {
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
             font-weight: 500;
         }
-        .tab-content {
-            display: none;
+        
+        .input-group {
+            position: relative;
         }
-        .tab-content.active {
-            display: block;
+        
+        .input-group i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
         }
-        /* Style for the form container */
-        .form-container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
         }
-        /* Register links */
-        .register-links {
-            text-align: center;
-            margin-top: 20px;
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(60, 179, 113, 0.2);
+            outline: none;
         }
-        .register-links a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-        .register-links a:hover {
-            text-decoration: underline;
-        }
-        /* Forgot password */
+        
         .forgot-password {
             text-align: right;
-            margin-top: 10px;
+            margin-bottom: 1.5rem;
         }
+        
         .forgot-password a {
-            color: #4CAF50;
+            color: var(--primary-color);
             text-decoration: none;
-            font-size: 0.9em;
+            font-size: 0.9rem;
+            transition: var(--transition);
         }
+        
         .forgot-password a:hover {
             text-decoration: underline;
+        }
+        
+        .btn-login {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-login:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #777;
+        }
+        
+        .register-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="gradient-background">
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
-    </div>
-
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="eco">Pra</span><span class="connect">kriti</span>
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-                <li><a href="login.html" class="btn-login active">Login</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="login-section">
-            <div class="container">
-                <div class="form-container">
-                    <h2 class="section-title text-center">Login to Your Account</h2>
-                    
-                    <div class="tab-container">
-                        <div class="tab active" id="consumer-login-tab">Consumer</div>
-                        <div class="tab" id="provider-login-tab">Provider</div>
-                    </div>
-                    
-                    <!-- Consumer Login Form -->
-                    <div class="tab-content active" id="consumer-login-content">
-                        <form id="consumer-login-form">
-                            <div class="form-group">
-                                <label for="consumer-email">Email</label>
-                                <input type="email" id="consumer-email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="consumer-password">Password</label>
-                                <input type="password" id="consumer-password" name="password" required>
-                            </div>
-                            <div class="forgot-password">
-                                <a href="forgot-password.html?type=consumer">Forgot Password?</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Login as Consumer</button>
-                        </form>
-                        <div class="register-links">
-                            <p>Don't have an account? <a href="register.html">Register Now</a></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Provider Login Form -->
-                    <div class="tab-content" id="provider-login-content">
-                        <form id="provider-login-form">
-                            <div class="form-group">
-                                <label for="provider-email">Business Email</label>
-                                <input type="email" id="provider-email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="provider-password">Password</label>
-                                <input type="password" id="provider-password" name="password" required>
-                            </div>
-                            <div class="forgot-password">
-                                <a href="forgot-password.html?type=provider">Forgot Password?</a>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Login as Provider</button>
-                        </form>
-                        <div class="register-links">
-                            <p>Don't have a provider account? <a href="register.html">Register as Provider</a></p>
-                        </div>
-                    </div>
+    <nav class="navbar">
+        <div class="logo">Pra<span>kriti</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="login-btn">Login</div>
+    </nav>
+    
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Login to Your Account</h1>
+                <div class="underline"></div>
+                
+                <div class="tabs">
+                    <div class="tab active" id="consumer-tab">Consumer</div>
+                    <div class="tab" id="provider-tab">Provider</div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>PRAKRITI</h3>
-                    <p>Connecting you with the best renewable energy solutions in your area.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="login.html">Login</a></li>
-                        <li><a href="register.html">Register</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> help-prakriti@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +91 9434740129</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+            
+            <div class="login-form" id="consumer-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email">
                     </div>
                 </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password">
+                    </div>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                
+                <button class="btn-login">Login as Consumer</button>
+                
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Register Now</a>
+                </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PRAKRITI. All rights reserved.</p>
+            
+            <div class="login-form" id="provider-form" style="display: none;">
+                <div class="form-group">
+                    <label for="provider-email">Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="provider-email" class="form-control" placeholder="Enter your email">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="provider-password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="provider-password" class="form-control" placeholder="Enter your password">
+                    </div>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                
+                <button class="btn-login">Login as Provider</button>
+                
+                <div class="register-link">
+                    Don't have an account? <a href="register.html">Register Now</a>
+                </div>
             </div>
         </div>
+    </div>
+    
+    <footer class="footer">
+        &copy; 2025 Prakriti. All rights reserved.
     </footer>
-
+    
     <script>
-        // Tab switching functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Get URL parameters to check if we should default to provider tab
-            const urlParams = new URLSearchParams(window.location.search);
-            const userType = urlParams.get('type');
-            
-            const consumerTab = document.getElementById('consumer-login-tab');
-            const providerTab = document.getElementById('provider-login-tab');
-            const consumerContent = document.getElementById('consumer-login-content');
-            const providerContent = document.getElementById('provider-login-content');
-            
-            // If type=provider in URL, show provider tab by default
-            if (userType === 'provider') {
-                providerTab.classList.add('active');
-                consumerTab.classList.remove('active');
-                providerContent.classList.add('active');
-                consumerContent.classList.remove('active');
-            }
+            const consumerTab = document.getElementById('consumer-tab');
+            const providerTab = document.getElementById('provider-tab');
+            const consumerForm = document.getElementById('consumer-form');
+            const providerForm = document.getElementById('provider-form');
             
             consumerTab.addEventListener('click', function() {
                 consumerTab.classList.add('active');
                 providerTab.classList.remove('active');
-                consumerContent.classList.add('active');
-                providerContent.classList.remove('active');
+                consumerForm.style.display = 'block';
+                providerForm.style.display = 'none';
             });
             
             providerTab.addEventListener('click', function() {
                 providerTab.classList.add('active');
                 consumerTab.classList.remove('active');
-                providerContent.classList.add('active');
-                consumerContent.classList.remove('active');
+                providerForm.style.display = 'block';
+                consumerForm.style.display = 'none';
             });
         });
     </script>
