@@ -9,6 +9,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional CSS for the tabs */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .tab {
+            padding: 10px 30px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .tab.active {
+            border-bottom: 2px solid #4CAF50;
+            color: #4CAF50;
+            font-weight: 500;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        /* Style for the form container */
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        /* Login links */
+        .login-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-links a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="gradient-background">
@@ -21,7 +67,7 @@
         <nav class="container">
             <div class="logo">
                 <a href="index.html">
-                    <span class="eco">Prs</span><span class="connect">kriti</span>
+                    <span class="eco">Pra</span><span class="connect">kriti</span>
                 </a>
             </div>
             <ul class="nav-links">
@@ -38,100 +84,94 @@
     </header>
 
     <main>
-        <section class="auth-section">
+        <section class="register-section">
             <div class="container">
-                <div class="auth-container">
-                    <h2 class="auth-title">Create an Account</h2>
-                    <div class="auth-tabs">
-                        <div class="tab active" data-tab="consumer">Consumer</div>
-                        <div class="tab" data-tab="provider">Provider</div>
+                <div class="form-container">
+                    <h2 class="section-title text-center">Create an Account</h2>
+                    
+                    <div class="tab-container">
+                        <div class="tab active" id="consumer-tab">Consumer</div>
+                        <div class="tab" id="provider-tab">Provider</div>
                     </div>
                     
-                    <div class="tab-content active" id="consumer-register">
-                        <form id="consumer-register-form" class="auth-form">
+                    <!-- Consumer Registration Form -->
+                    <div class="tab-content active" id="consumer-content">
+                        <form id="consumer-form">
                             <div class="form-group">
                                 <label for="consumer-name">Full Name</label>
-                                <input type="text" id="consumer-name" required>
+                                <input type="text" id="consumer-name" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="consumer-email">Email</label>
-                                <input type="email" id="consumer-email" required>
+                                <input type="email" id="consumer-email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="consumer-phone">Phone Number</label>
-                                <input type="tel" id="consumer-phone" required>
+                                <input type="tel" id="consumer-phone" name="phone" required>
                             </div>
                             <div class="form-group">
                                 <label for="consumer-password">Password</label>
-                                <input type="password" id="consumer-password" required>
+                                <input type="password" id="consumer-password" name="password" required>
                             </div>
                             <div class="form-group">
                                 <label for="consumer-confirm-password">Confirm Password</label>
-                                <input type="password" id="consumer-confirm-password" required>
+                                <input type="password" id="consumer-confirm-password" name="confirm-password" required>
                             </div>
-                            <div class="form-group">
-                                <div class="terms-privacy">
-                                    <input type="checkbox" id="consumer-terms" required>
-                                    <label for="consumer-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                                </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="consumer-terms" name="terms" required>
+                                <label for="consumer-terms">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </form>
-                        <div class="auth-footer">
-                            <p>Already have an account? <a href="login.html" data-tab="consumer">Log In as Consumer</a></p>
+                        <div class="login-links">
+                            <p>Already have an account? <a href="login.html?type=consumer">Log In as Consumer</a></p>
                         </div>
                     </div>
                     
-                    <div class="tab-content" id="provider-register">
-                        <form id="provider-register-form" class="auth-form">
+                    <!-- Provider Registration Form -->
+                    <div class="tab-content" id="provider-content">
+                        <form id="provider-form">
                             <div class="form-group">
-                                <label for="business-name">Business Name</label>
-                                <input type="text" id="business-name" required>
+                                <label for="provider-company">Company Name</label>
+                                <input type="text" id="provider-company" name="company" required>
                             </div>
                             <div class="form-group">
-                                <label for="business-type">Business Type</label>
-                                <select id="business-type" required>
-                                    <option value="">Select Business Type</option>
-                                    <option value="solar">Solar Panel Installation</option>
-                                    <option value="wind">Wind Energy Solutions</option>
-                                    <option value="water">Rainwater Collection Systems</option>
-                                    <option value="multiple">Multiple Services</option>
+                                <label for="provider-name">Contact Person</label>
+                                <input type="text" id="provider-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="provider-email">Business Email</label>
+                                <input type="email" id="provider-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="provider-phone">Business Phone</label>
+                                <input type="tel" id="provider-phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="provider-services">Services Offered</label>
+                                <select id="provider-services" name="services" multiple required>
+                                    <option value="solar">Solar Panels</option>
+                                    <option value="wind">Wind Energy</option>
+                                    <option value="water">Rainwater Collection</option>
+                                    <option value="other">Other Renewable Energy Solutions</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="business-address">Business Address</label>
-                                <input type="text" id="business-address" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-person">Contact Person</label>
-                                <input type="text" id="contact-person" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="business-email">Business Email</label>
-                                <input type="email" id="business-email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="business-phone">Business Phone</label>
-                                <input type="tel" id="business-phone" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="provider-password">Password</label>
-                                <input type="password" id="provider-password" required>
+                                <input type="password" id="provider-password" name="password" required>
                             </div>
                             <div class="form-group">
                                 <label for="provider-confirm-password">Confirm Password</label>
-                                <input type="password" id="provider-confirm-password" required>
+                                <input type="password" id="provider-confirm-password" name="confirm-password" required>
                             </div>
-                            <div class="form-group">
-                                <div class="terms-privacy">
-                                    <input type="checkbox" id="provider-terms" required>
-                                    <label for="provider-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                                </div>
+                            <div class="form-group checkbox">
+                                <input type="checkbox" id="provider-terms" name="terms" required>
+                                <label for="provider-terms">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                            <button type="submit" class="btn btn-primary btn-block">Register as Provider</button>
                         </form>
-                        <div class="auth-footer">
-                            <p>Already have an account? <a href="login.html" data-tab="provider">Log In as Provider</a></p>
+                        <div class="login-links">
+                            <p>Already have an account? <a href="login.html?type=provider">Log In as Provider</a></p>
                         </div>
                     </div>
                 </div>
@@ -143,7 +183,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>EcoConnect</h3>
+                    <h3>PRAKRITI</h3>
                     <p>Connecting you with the best renewable energy solutions in your area.</p>
                 </div>
                 <div class="footer-section">
@@ -158,8 +198,8 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p><i class="fas fa-envelope"></i> info@ecoconnect.com</p>
-                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> help-prakriti@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +91 9434740129</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -169,12 +209,33 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 EcoConnect. All rights reserved.</p>
+                <p>&copy; 2025 PRAKRITI. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const consumerTab = document.getElementById('consumer-tab');
+            const providerTab = document.getElementById('provider-tab');
+            const consumerContent = document.getElementById('consumer-content');
+            const providerContent = document.getElementById('provider-content');
+            
+            consumerTab.addEventListener('click', function() {
+                consumerTab.classList.add('active');
+                providerTab.classList.remove('active');
+                consumerContent.classList.add('active');
+                providerContent.classList.remove('active');
+            });
+            
+            providerTab.addEventListener('click', function() {
+                providerTab.classList.add('active');
+                consumerTab.classList.remove('active');
+                providerContent.classList.add('active');
+                consumerContent.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
